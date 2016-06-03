@@ -11,19 +11,102 @@
 
 //App.js
 
- $(function() {
-    $( "#range-slider" ).slider({
-      range: true,
-      min: 0,
-      max: 500,
-      values: [ 75, 300 ],
-      slide: function( event, ui ) {
-        //$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }
-    })
-   // $( "#amount" ).val( "$" + $( "#range-slider" ).slider( "values", 0 ) +
-     // " - $" + $( "#range-slider" ).slider( "values", 1 ) );
+$(function() {
+	$( "#range-slider" ).slider({
+		range: true,
+		min: 0,
+		max: 500,
+		values: [ 75, 300 ],
+		slide: function( event, ui ) {
+		//$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		}
+	})
+	// $( "#amount" ).val( "$" + $( "#range-slider" ).slider( "values", 0 ) +
+	 // " - $" + $( "#range-slider" ).slider( "values", 1 ) );
 
-     // $("#range-slide").draggable();
-  });
+	 // $("#range-slide").draggable();
+
+	 $("#category button").click(function(){
+	 	$('.overlay.category').show();
+	 });
+	 
+	 $("#commitment-level button").click(function(){
+	 	$('.overlay.c-level').show();
+	 });
+});
+
+(function createCategories($){
+	var categories = [{
+		"name":"Christian" 
+	},
+	{
+		"name":"Jewish" 
+	},
+	{
+		"name":"Asian" 
+	},
+	{
+		"name":"Black" 
+	},
+	{
+		"name":"Latino" 
+	},
+	{
+		"name":"Senior" 
+	},
+	{
+		"name":"Gay" 
+	},
+	{
+		"name":"Lesbian" 
+	},
+	{
+		"name":"Apps" 
+	}];
+
+	$.each(categories, function(k,v){
+		var $div = $('<div>');
+		$div.addClass('choice');
+		$div.text(v.name);
+		$(".overlay #categories").append($div);
+	});
+
+	var commitments = [{
+		"level":"Serious Relationship"
+	},
+	{
+		"level":"Dating"
+	},
+	{
+		"level":"Casual"
+	}];
+
+	$.each(commitments, function(k,v){
+		var $div = $('<div>');
+		$div.addClass('choice');
+		$div.text(v.level);
+		$(".overlay #c-levels").append($div);
+	});
+
+
+})(jQuery);
+
+
+
+//overlay
+(function overlayControl() {
+	// $("#close-btn").click(function(){
+	// 	$(".overlay").hide();
+	// });
+
+    $(document).mouseup(function (e) {
+        var container = $(".overlay");
+        if (!container.is(e.target) // if the target of the click isn't the container...
+            && container.has(e.target).length === 0) {
+            container.hide();
+        }
+    });
+})();
+
+
 

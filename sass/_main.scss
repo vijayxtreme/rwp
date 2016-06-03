@@ -71,9 +71,12 @@ h3 {
 #age-range {
 	margin-top:40px;
 	margin-bottom:40px;
+
 	#range-slider {
+
 		max-width: 375px;
 		margin:0 auto;
+		margin-top:50px;
 		background-color:transparent;
 		border-radius:25px;
 
@@ -81,6 +84,7 @@ h3 {
 			background:#0087C3;
 			border-radius:50%;
 			border:2px solid white;
+			outline: none;
 		}
 		.ui-slider-range {
 			background:#0087C3;
@@ -100,4 +104,5 @@ button#view-sites {
 	border-radius:7px;
 	max-width:375px;
 	outline:none;
+	margin-bottom:80px;
 }

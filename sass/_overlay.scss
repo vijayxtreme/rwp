@@ -1,0 +1,38 @@
+.overlay {
+	width:100%;
+	position:absolute;
+	background-color:white;
+	top:0;
+	z-index:100;
+
+	.container {
+		color:#000;
+	}
+	h3 {
+		margin-top:20px;
+	}
+	#categories, #c-levels {
+		padding-bottom:15px;
+	}
+	.choice {
+		border:1px solid #DDDDDD;
+		border-radius:8px;
+		padding-top: 17px;
+		padding-bottom:17px;
+		padding-left:20px;
+		padding-right:20px;
+		text-align: left;
+		margin-bottom: 5px;
+		cursor:pointer;
+	}
+
+}
+.category {
+	display:none;
+
+}
+
+.c-level {
+	display:none;
+}
+
