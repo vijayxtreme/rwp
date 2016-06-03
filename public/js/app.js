@@ -28,26 +28,26 @@ $(function() {
 
 			var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left));
 			var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left));
-			sh1-=5.2;
-			sh2-=5.2;
+			sh1-=3;
+			sh2-=3;
 			sh1+="%";
 			sh2+="%";
 			// if(!prev1 && !prev2){
-			// 	prev1 = sh1 - 4;
-			// 	prev2 = sh2 - 4;
+			// 	prev1 = sh1 - 3;
+			// 	prev2 = sh2 - 3;
 			// 	sh1 = prev1 + "%";
 			// 	sh2 = prev2 + "%";
 
 			// }else {
 			// 	if(sh1-prev1 > 0){
 			// 		console.log(sh1 - prev1, prev1)
-			// 		prev1 = sh1 - 4;
-			// 		prev2 = sh2 - 4;
+			// 		prev1 = sh1 - 3;
+			// 		prev2 = sh2 - 3;
 			// 		sh1 = prev1 + "%";
 			// 		sh2 = prev2 + "%";
 			// 	}else {
-			// 		prev1 = sh1 - 0;
-			// 		prev2 = sh2 - 0;
+			// 		prev1 = sh1 + 3;
+			// 		prev2 = sh2 + 3;
 			// 		sh1 = prev1 + "%";
 			// 		sh2 = prev2 + "%";
 			// 	}
