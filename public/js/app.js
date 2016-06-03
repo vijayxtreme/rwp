@@ -67,7 +67,9 @@ $(function() {
 	$.each(categories, function(k,v){
 		var $div = $('<div>');
 		$div.addClass('choice');
-		$div.text(v.name);
+		var html = "<input type='radio' id='category-"+k+"' name='category-group'><label class='category-group' for='category-"+k+"'></label><label class='full-width' for='category-"+k+"'>"+v.name+"</label>";
+
+		$div.html(html);
 		$(".overlay #categories").append($div);
 	});
 
@@ -84,8 +86,24 @@ $(function() {
 	$.each(commitments, function(k,v){
 		var $div = $('<div>');
 		$div.addClass('choice');
-		$div.text(v.level);
+		var html = "<input type='radio' id='commit-"+k+"' name='commit-group'><label class='commit-group' for='commit-"+k+"'></label><label class='full-width' for='commit-"+k+"'>"+v.level+"</label>";
+		$div.html(html);
 		$(".overlay #c-levels").append($div);
+	});
+
+
+	$("#categories label.category-group, #categories .full-width").click(function(e){
+		e.stopImmediatePropagation();
+		var $text = $(this).parent().find('label.full-width').text();
+		$('#cat-btn').text($text);
+		$(".overlay").hide();
+	});
+
+	$("#c-levels label.commit-group, #c-levels .full-width").click(function(e){
+		e.stopImmediatePropagation();
+		var $text = $(this).parent().find('label.full-width').text();
+		$('#com-btn').text($text);
+		$(".overlay").hide();
 	});
 
 
@@ -95,9 +113,9 @@ $(function() {
 
 //overlay
 (function overlayControl() {
-	// $("#close-btn").click(function(){
-	// 	$(".overlay").hide();
-	// });
+	$(".close").click(function(){
+		$(".overlay").hide();
+	});
 
     $(document).mouseup(function (e) {
         var container = $(".overlay");

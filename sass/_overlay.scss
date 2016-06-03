@@ -7,9 +7,19 @@
 
 	.container {
 		color:#000;
+		position:relative;
+	}
+	.close {
+		position:absolute;
+		right:0px;
+		top:0px;
+		background:url(../img/close.png);
+		height:16px;
+		width:16px;
 	}
 	h3 {
 		margin-top:20px;
+		margin-bottom: 20px;
 	}
 	#categories, #c-levels {
 		padding-bottom:15px;
@@ -24,6 +34,41 @@
 		text-align: left;
 		margin-bottom: 5px;
 		cursor:pointer;
+		position:relative;
+	}
+
+	input[type=radio]{
+		display:none;
+	}
+	label.category-group, label.commit-group {
+		display: block;
+		height:10px;
+		width:10px;
+		border-radius:50%;
+		border:3px solid #ddd;
+		background-color:#F0F0F0;
+		position:absolute;
+		right:11px;
+
+	}
+	label.full-width {
+		width:100%;
+		display:block;
+		color:#7D7D7D;
+		height:100%;
+	}
+	input[type=radio]:checked + label.category-group, input[type=radio]:checked + label.commit-group {
+		display: block;
+		height:10px;
+		width:10px;
+		border:3px solid #ddd;
+		border-radius:50%;
+		background-color:#084764;
+		position:absolute; 
+	}
+
+	input[type=radio]:checked ~ label.full-width {
+		color:#084764;
 	}
 
 }
