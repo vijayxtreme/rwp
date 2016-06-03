@@ -12,34 +12,72 @@
 //App.js
 
 $(function() {
+
+	var prev1, 
+	prev2; 
+
 	$( "#range-slider" ).slider({
 		range: true,
-		min: 0,
-		max: 500,
-		values: [ 75, 300 ],
+		min: 18,
+		max: 55,
+		values: [ 21, 35 ],
 		slide: function( event, ui ) {
-		//$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			$( "#amt1" ).html( ui.values[ 0 ] );
+			$( "#amt2" ).html( ui.values[ 1 ] );
+
+
+			var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left));
+			var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left));
+			sh1-=4;
+			sh2-=4;
+			sh1+="%";
+			sh2+="%";
+			// if(!prev1 && !prev2){
+			// 	prev1 = sh1 - 4;
+			// 	prev2 = sh2 - 4;
+			// 	sh1 = prev1 + "%";
+			// 	sh2 = prev2 + "%";
+
+			// }else {
+			// 	if(sh1-prev1 > 0){
+			// 		console.log(sh1 - prev1, prev1)
+			// 		prev1 = sh1 - 4;
+			// 		prev2 = sh2 - 4;
+			// 		sh1 = prev1 + "%";
+			// 		sh2 = prev2 + "%";
+			// 	}else {
+			// 		prev1 = sh1 - 0;
+			// 		prev2 = sh2 - 0;
+			// 		sh1 = prev1 + "%";
+			// 		sh2 = prev2 + "%";
+			// 	}
+			// }
+
+			$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
+			$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
 		}
+
 	})
-	// $( "#amount" ).val( "$" + $( "#range-slider" ).slider( "values", 0 ) +
-	 // " - $" + $( "#range-slider" ).slider( "values", 1 ) );
+	var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left) - 7) + '%';
+	var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left) - 7) + '%';
+	console.log(sh1, sh2)
 
-	 // $("#range-slide").draggable();
+	$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
+	$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
 
-	 $("#category button").click(function(){
-	 	$('.overlay.category').show();
-	 });
+	$("#category button").click(function(){
+		$('.overlay.category').show();
+	});
 	 
-	 $("#commitment-level button").click(function(){
+	$("#commitment-level button").click(function(){
 	 	$('.overlay.c-level').show();
-	 });
+	});
 });
 
 (function createCategories($){
 	var categories = [{
 		"name":"Christian" 
-	},
-	{
+	},	{
 		"name":"Jewish" 
 	},
 	{
