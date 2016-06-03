@@ -28,8 +28,8 @@ $(function() {
 
 			var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left));
 			var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left));
-			sh1-=5;
-			sh2-=5;
+			sh1-=5.2;
+			sh2-=5.2;
 			sh1+="%";
 			sh2+="%";
 			// if(!prev1 && !prev2){
@@ -58,8 +58,8 @@ $(function() {
 		}
 
 	})
-	var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left) - 7) + '%';
-	var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left) - 7) + '%';
+	var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left) - 5.2) + '%';
+	var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left) - 5.2) + '%';
 	console.log(sh1, sh2)
 
 	$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
