@@ -28,8 +28,8 @@ $(function() {
 
 			var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left));
 			var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left));
-			sh1-=4;
-			sh2-=4;
+			sh1-=5;
+			sh2-=5;
 			sh1+="%";
 			sh2+="%";
 			// if(!prev1 && !prev2){
