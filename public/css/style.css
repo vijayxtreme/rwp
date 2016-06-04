@@ -108,7 +108,9 @@ h3 {
   margin-top: 20px; }
 
 #ages {
-  position: relative; }
+  position: relative;
+  margin: 0 auto;
+  max-width: 375px; }
   #ages .balloon {
     height: 52px;
     width: 45px;
