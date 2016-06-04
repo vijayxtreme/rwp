@@ -22,45 +22,30 @@ $(function() {
 		max: 55,
 		values: [ 21, 35 ],
 		slide: function( event, ui ) {
-			console.log($(this))
-			$( "#amt1" ).html( ui.values[ 0 ] );
-			$( "#amt2" ).html( ui.values[ 1 ] );
 
+			var handle = $(ui.handle);
+			var left = handle.css('left');
 
-			var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left));
-			var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left));
-			sh1-=3;
-			sh2-=3;
-			sh1+="%";
-			sh2+="%";
-			// if(!prev1 && !prev2){
-			// 	prev1 = sh1 - 3;
-			// 	prev2 = sh2 - 3;
-			// 	sh1 = prev1 + "%";
-			// 	sh2 = prev2 + "%";
+			console.log(handle.index())
 
-			// }else {
-			// 	if(sh1-prev1 > 0){
-			// 		console.log(sh1 - prev1, prev1)
-			// 		prev1 = sh1 - 3;
-			// 		prev2 = sh2 - 3;
-			// 		sh1 = prev1 + "%";
-			// 		sh2 = prev2 + "%";
-			// 	}else {
-			// 		prev1 = sh1 + 3;
-			// 		prev2 = sh2 + 3;
-			// 		sh1 = prev1 + "%";
-			// 		sh2 = prev2 + "%";
-			// 	}
-			// }
-
-			$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
-			$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
+			if(handle.index() == 1){
+				$( "#amt1" ).html( ui.values[ 0 ] );
+				var sh1 = (parseFloat(handle[0].style.left));
+				sh1-=4;
+				sh1+="%";
+				$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
+		}else {
+				$( "#amt2" ).html( ui.values[ 1 ] );
+				var sh2 = (parseFloat(handle[0].style.left));
+				sh2-=4;
+				sh2+="%";
+				$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
+			}
 		}
+	});
 
-	})
-	var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left) - 5.2) + '%';
-	var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left) - 5.2) + '%';
+	var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left) - 7) + '%';
+	var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left) - 7) + '%';
 	console.log(sh1, sh2)
 
 	$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
