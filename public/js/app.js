@@ -22,6 +22,7 @@ $(function() {
 		max: 55,
 		values: [ 21, 35 ],
 		slide: function( event, ui ) {
+			console.log($(this))
 			$( "#amt1" ).html( ui.values[ 0 ] );
 			$( "#amt2" ).html( ui.values[ 1 ] );
 
