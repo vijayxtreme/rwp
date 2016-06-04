@@ -149,7 +149,11 @@ button#view-sites {
   border-radius: 7px;
   max-width: 375px;
   outline: none;
+  cursor: pointer;
   margin-bottom: 20px; }
+
+button#view-sites:active, button#view-sites:focus {
+  box-shadow: inset 0px 2px 10px #3E3A3A; }
 
 .overlay {
   width: 100%;
