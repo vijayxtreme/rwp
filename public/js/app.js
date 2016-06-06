@@ -13,8 +13,7 @@
 
 $(function() {
 
-	var prev1, 
-	prev2; 
+	var prev1 = 21, prev2 = 35;
 
 	$( "#range-slider" ).slider({
 		range: true,
@@ -26,26 +25,71 @@ $(function() {
 			var handle = $(ui.handle);
 			var left = handle.css('left');
 
-			console.log(handle.index())
+			console.log(ui.value)
+
 
 			if(handle.index() == 1){
-				$( "#amt1" ).html( ui.values[ 0 ] );
 				var sh1 = (parseFloat(handle[0].style.left));
-				sh1-=4;
-				sh1+="%";
-				$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
-		}else {
-				$( "#amt2" ).html( ui.values[ 1 ] );
+				$( "#amt1" ).html( ui.values[ 0 ] );
+
+				//if range going up, then sliding right
+				if(prev1 && prev1 < ui.value){
+					//console.log('going up');
+					
+					sh1 = (sh1 - 3) + "%";
+
+					$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
+
+					prev1 = ui.value;
+
+				//if range going down, then sliding left
+				}else if(prev1 && prev1 > ui.value){
+					//console.log('going down');
+
+					sh1 = (sh1 - 8) + "%";
+					
+					$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
+
+					prev1 = ui.value;
+				}
+
+				
+				
+			//if handle is 2
+			}else {
 				var sh2 = (parseFloat(handle[0].style.left));
-				sh2-=4;
-				sh2+="%";
-				$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
+				$( "#amt2" ).html( ui.values[ 1 ] );
+				if(prev2 && prev2 < ui.value){
+					//console.log('going up');
+					
+					sh2 = (sh2 - 3) + "%";
+
+					$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
+
+					prev2 = ui.value;
+
+				//if range going down, then sliding left
+				}else if(prev2 && prev2 > ui.value){
+					//console.log('going down');
+
+					sh2 = (sh2 - 8) + "%";
+					
+					$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
+
+					prev2 = ui.value;
+				}
+
+
+				
+				
+				
+				
 			}
 		}
 	});
 
-	var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left) - 7) + '%';
-	var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left) - 7) + '%';
+	var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left) - 5.5) + '%';
+	var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left) - 5.5) + '%';
 	console.log(sh1, sh2)
 
 	$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
