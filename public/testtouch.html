@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Test Touch</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/nouislider.css">
+	<style type="text/css">
+	#connect {
+		margin-top:100px;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<div id="connect"></div>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/nouislider.js"></script>
+		<!-- <script type="text/javascript" src="js/hammer.min.js"></script> -->
+		<script type="text/javascript">
+var connectSlider = document.getElementById('connect');
+
+noUiSlider.create(connectSlider, {
+	start: [20, 80],
+	connect: false,
+	range: {
+		'min': 0,
+		'max': 100
+	}
+});
+
+
+var connectBar = document.createElement('div'),
+	connectBase = connectSlider.querySelector('.noUi-base');
+
+// Give the bar a class for styling and add it to the slider.
+connectBar.className += 'connect';
+connectBase.appendChild(connectBar);
+
+connectSlider.noUiSlider.on('update', function( values, handle, a, b, handlePositions ) {
+
+	var offset = handlePositions[handle];
+
+	// Right offset is 100% - left offset
+	if ( handle === 1 ) {
+		offset = 100 - offset;
+	}
+
+	// Pick left for the first handle, right for the second.
+	connectBar.style[handle ? 'right' : 'left'] = offset + '%';
+});
+		</script>
+	</div>
+</body>
+</html>
