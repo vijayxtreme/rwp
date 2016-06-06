@@ -49,6 +49,7 @@
 		background-color:#F0F0F0;
 		position:absolute;
 		right:11px;
+		top:9px;
 
 	}
 	label.full-width {
@@ -56,6 +57,11 @@
 		display:block;
 		color:#7D7D7D;
 		height:100%;
+		position: absolute;
+		top: 0px;
+   		left: 14px;
+  		font-size: 16px;
+  		line-height: 32px;
 	}
 	input[type=radio]:checked + label.category-group, input[type=radio]:checked + label.commit-group {
 		display: block;
