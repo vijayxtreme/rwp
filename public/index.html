@@ -38,27 +38,32 @@
 			<h1>Reviews that Matter&trade;</h1>	
 		</header>
 		<section>
-			<div class="h-line"></div>
-			<div id="category">
-				<h3>Category</h3>
-				<button id="cat-btn" class="select">Christian</button>
-			</div>
-			<div id="commitment-level">
-				<h3>Commitment Level</h3>
-				<button id="com-btn" class="select">Select</button>
-			</div>
-			<div id="age-range">
-				<h3>Age Range</h3>
-				<div id="ages">
-					<div class="balloon" id="amt1"></div>
-					<div class="balloon" id="amt2"></div>
-					<div id="range-slider">
-					</div>
+			<form action="" method="POST">
+				<div class="h-line"></div>
+				<div id="category">
+					<h3>Category</h3>
+					<button id="cat-btn" class="select">Christian</button>
+					<input type="hidden" name="category" value="Christian">
 				</div>
-			</div>	
-			<button id="view-sites">
-			View Sites
-		</button>
+				<div id="commitment-level">
+					<h3>Commitment Level</h3>
+					<button id="com-btn" class="select">Select</button>
+					<input type="hidden" name="commitment" value="Serious Relationship">
+
+				</div>
+				<div id="age-range">
+					<h3>Age Range</h3>
+					<div id="ages">
+						<div class="balloon" id="amt1"></div>
+						<div class="balloon" id="amt2"></div>
+						<div id="range-slider">
+						</div>
+					</div>
+					<input type="hidden" name="age1" value="21">
+					<input type="hidden" name="age2" value="35">
+				</div>	
+				<button type="submit" id="view-sites">View Sites</button>
+			</form>
 		</section>
 	</div>
 	<div class="overlay category">

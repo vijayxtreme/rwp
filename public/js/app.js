@@ -25,12 +25,13 @@ $(function() {
 			var handle = $(ui.handle);
 			var left = handle.css('left');
 
-			console.log(ui.value)
+			console.log(ui.value);
 
 
 			if(handle.index() == 1){
 				var sh1 = (parseFloat(handle[0].style.left));
 				$( "#amt1" ).html( ui.values[ 0 ] );
+				$('input[name="age1"]').val(ui.values[ 0 ]);
 
 				//if range going up, then sliding right
 				if(prev1 && prev1 < ui.value){
@@ -53,12 +54,11 @@ $(function() {
 					prev1 = ui.value;
 				}
 
-				
-				
 			//if handle is 2
 			}else {
 				var sh2 = (parseFloat(handle[0].style.left));
 				$( "#amt2" ).html( ui.values[ 1 ] );
+				$('input[name="age2"]').val(ui.values[ 1 ]);
 				if(prev2 && prev2 < ui.value){
 					//console.log('going up');
 					
@@ -78,12 +78,6 @@ $(function() {
 
 					prev2 = ui.value;
 				}
-
-
-				
-				
-				
-				
 			}
 		}
 	});
@@ -95,11 +89,13 @@ $(function() {
 	$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
 	$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
 
-	$("#category button").click(function(){
+	$("#category button").click(function(e){
+		e.preventDefault();
 		$('.overlay.category').show();
 	});
 	 
-	$("#commitment-level button").click(function(){
+	$("#commitment-level button").click(function(e){
+		e.preventDefault();
 	 	$('.overlay.c-level').show();
 	});
 });
@@ -159,11 +155,11 @@ $(function() {
 		$(".overlay #c-levels").append($div);
 	});
 
-
 	$("#categories label.category-group, #categories .full-width").click(function(e){
 		e.stopImmediatePropagation();
 		var $text = $(this).parent().find('label.full-width').text();
 		$('#cat-btn').text($text);
+		$('input[name="category"]').val($text);
 		$(".overlay").hide();
 	});
 
@@ -171,6 +167,7 @@ $(function() {
 		e.stopImmediatePropagation();
 		var $text = $(this).parent().find('label.full-width').text();
 		$('#com-btn').text($text);
+		$('input[name="commitment"]').val($text);
 		$(".overlay").hide();
 	});
 

@@ -132,7 +132,8 @@ h3 {
       background: #0087C3;
       border-radius: 50%;
       border: 2px solid white;
-      outline: none; }
+      outline: none;
+      cursor: pointer; }
     #age-range #range-slider .ui-slider-range {
       background: #0087C3;
       box-shadow: inset 0px 1px 10px #000; }
@@ -152,7 +153,7 @@ button#view-sites {
   cursor: pointer;
   margin-bottom: 20px; }
 
-button#view-sites:active, button#view-sites:focus {
+button#view-sites:active {
   box-shadow: inset 0px 2px 10px #3E3A3A; }
 
 .overlay {
