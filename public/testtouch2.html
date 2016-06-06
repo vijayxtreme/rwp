@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple Test Touch</title>
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+			<link rel="stylesheet" type="text/css" href="css/nouislider.css">
+	<style type="text/css">
+	#connect {
+		margin-top:100px;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<div id="behaviour"></div>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/nouislider.js"></script>
+		<!-- <script type="text/javascript" src="js/hammer.min.js"></script> -->
+		<script type="text/javascript">
+			var behaviourSlider = document.getElementById('behaviour');
+
+			noUiSlider.create(behaviourSlider, {
+				start: [ 20, 40 ],
+				step: 10,
+				behaviour: 'drag',
+				connect: true,
+				range: {
+					'min':  20,
+					'max':  80
+				}
+			});
+		</script>
+	</div>
+</body>
+</html>
+</body>
+</html>
