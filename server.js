@@ -1,6 +1,7 @@
 var express = require('express'),
-	app = express();
-var path = require('path');
+	app = express(),
+	path = require('path'),
+	bodyParser = require('body-parser');
 
 app.use(express.static('public'));
 

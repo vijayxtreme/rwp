@@ -174,12 +174,6 @@ $(function() {
 
 })(jQuery);
 
-//hammerjs support 
-(function gestureSupport(){
-	//some node, addEventListener 
-
-
-});
 
 //overlay
 (function overlayControl() {
