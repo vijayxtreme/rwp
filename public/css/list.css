@@ -73,12 +73,16 @@ header .menu {
   padding: 15px;
   padding-top: 10px; }
 
-section.main {
-  position: relative;
-  border-bottom: 8px solid #FF4081; }
+.editorspick {
+  width: 110px;
+  height: 30px;
+  background: url(../img/editorspick.png);
+  background-repeat: no-repeat;
+  margin-left: 10px; }
 
 section {
-  clear: both; }
+  clear: both;
+  position: relative; }
   section .main-image {
     background: url(https://s3-us-west-1.amazonaws.com/review-weekly/wp-content/uploads/2015/11/05235952/Dating_Review-Weekly_Cat_header_.jpg);
     background-size: cover;
@@ -110,12 +114,13 @@ section {
     font-weight: 300;
     color: #7D7D7D;
     box-shadow: inset 1px 2px 5px #dddddd;
-    padding-top: 10px; }
+    padding-top: 20px; }
     section .listed button {
       margin-top: 10px;
       background-color: #FF9800;
       height: 45px;
       width: calc(100% - 10px);
+      max-width: 259px;
       border: none;
       color: white;
       border-radius: 5px;
@@ -127,7 +132,8 @@ section {
       box-shadow: inset 0px 2px 4px #7D7D7D; }
     section .listed .left-col {
       float: left;
-      width: 34.29%; }
+      width: calc(34.29% - 10px);
+      max-width: 142px; }
     section .listed .right-col {
       float: left;
       width: 65.71%; }
@@ -140,18 +146,58 @@ section {
       clear: both; }
     section .listed .copy {
       margin-top: 8px;
-      width: 200px; }
+      width: 200px;
+      margin-bottom: 31px; }
   section .listed.highlight {
     background-color: white;
     border-bottom: 0;
-    box-shadow: none; }
+    box-shadow: none;
+    padding-top: 0; }
     section .listed.highlight .tag {
       background-color: #F0F0F0; }
     section .listed.highlight button {
       background-color: #8BC34A; }
+    section .listed.highlight .horizontal {
+      margin-bottom: 14px; }
+    section .listed.highlight .copy {
+      margin-top: 8px;
+      width: 200px;
+      margin-bottom: 11px; }
+  section .horizontal {
+    display: block;
+    width: 45px;
+    height: 2px;
+    background-color: #ddd;
+    margin: 0 auto;
+    margin-top: 22px;
+    margin-bottom: 18px; }
+  section .affilliate-logo {
+    margin-top: 11px;
+    text-align: center; }
+  section .rating {
+    text-align: center; }
+    section .rating .rating-value {
+      font-size: 40px;
+      color: #EF5350;
+      font-family: "Helvetica Neue"; }
+
+section.main {
+  position: relative;
+  border-bottom: 8px solid #FF4081; }
 
 footer {
   text-align: center;
   font-size: 14px;
   color: #898989;
-  font-family: "Helvetica Neue"; }
+  font-family: "Helvetica Neue";
+  padding-left: 20px;
+  padding-right: 20px; }
+  footer .logo-footer {
+    margin-bottom: 40px; }
+  footer .advertising {
+    margin-top: 18px;
+    margin-bottom: 40px; }
+  footer .bottom {
+    border-top: 2px solid #ddd;
+    padding-top: 20px;
+    padding-bottom: 20px; }
