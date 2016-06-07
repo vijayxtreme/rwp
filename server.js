@@ -5,6 +5,10 @@ var express = require('express'),
 
 app.use(express.static('public'));
 
+app.get('/list', function(req, res){
+	res.sendFile(path.join(__dirname + '/public/list.html'));
+})
+
 app.post('/list', function(req, res){
 	res.sendFile(path.join(__dirname + '/public/list.html'));
 })
