@@ -1,0 +1,136 @@
+body {
+	-webkit-font-smoothing:antialiased;
+}
+
+header {
+	.logo {
+	    float: left;
+	    background-image: url(https://s3-us-west-1.amazonaws.com/review-weekly/assets/img/logo-blk.png);
+	    background-size: 100% 100%;
+	    width: 75px;
+	    height: 39px;
+	    display: block;
+	    margin: 5px 10px 0px 10px;
+	}
+
+	.slogan {
+	    float: left;
+	    padding-top: 19px;
+	    font-size: 11px;
+	    letter-spacing: -0.25px;
+	    text-align: left;
+	    font-style: italic;
+	}
+
+	.menu {
+	    float: right;
+	    border-left: 2px solid #e7e7e7;
+	    height: 15px;
+	    margin-top: 5px;
+	    padding: 15px;
+	    padding-top: 10px;
+	}	
+}
+
+section.main {
+	position:relative;
+	border-bottom:8px solid #FF4081;
+}
+section {
+	clear:both;
+
+	.main-image {
+		background:url(https://s3-us-west-1.amazonaws.com/review-weekly/wp-content/uploads/2015/11/05235952/Dating_Review-Weekly_Cat_header_.jpg);
+		background-size: cover;
+		height: 175px;
+	}
+	h1 {
+		font-size:24px;
+		color:white;
+		position:absolute;
+		top:133px;
+		left:20px;
+	}
+	.tag {
+		background-color:#DDDDDD;
+		height:27px;
+		min-width: 57px;
+		border-radius:5px;
+		display: inline-block;
+		font-size: 14px;
+		font-style: italic;
+		font-weight: bold;
+		font-family: 'Helvetica Neue';
+		color:#7D7D7D;
+		text-align: center;
+		line-height: 27px;
+		cursor: pointer;
+	}
+	.listed {
+		background-color:#F0F0F0;
+		font-family: 'Helvetica Neue';
+		font-size:14px;
+		font-weight: 300;
+		color:#7D7D7D;
+
+		box-shadow:inset 1px 2px 5px #dddddd;
+		padding-top:10px;
+		button {
+			margin-top: 10px;
+			background-color:#FF9800;
+			height:45px;
+			width:calc(100% - 10px);
+			border:none;
+			color:white;
+			border-radius:5px;
+			font-family: 'Georgia';
+			font-size:18px;
+			margin-bottom: 20px;
+			outline: none;
+		}
+		button:active {
+			box-shadow:inset 0px 2px 4px #7D7D7D;
+		}
+		.left-col {
+			float:left;
+			width:34.29%;
+
+		}
+		.right-col {
+			float:left;
+			width:65.71%;
+		}
+		.right-col:after {
+			content:" ";
+			display:block;
+			font-size:0;
+			visibility: hidden;
+			height:0;
+			clear:both;
+		}
+		.copy {
+			margin-top:8px;
+			width:200px;
+		}
+
+	}
+	.listed.highlight{
+		background-color:white;
+		border-bottom:0;
+		box-shadow:none;
+		.tag {
+			background-color:#F0F0F0;
+		}
+		button {
+			background-color:#8BC34A;
+		}
+	}
+
+
+}
+footer {
+		text-align:center;
+		font-size:14px;
+		color:#898989;
+		font-family: "Helvetica Neue";
+	}
