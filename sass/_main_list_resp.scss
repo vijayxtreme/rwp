@@ -1,0 +1,33 @@
+@media screen and (max-width:359px){
+	.editorspick {
+		width:26.6%;
+		background-size:contain;
+	}
+
+	section {
+		.listed {
+			.left-col {
+
+			}
+			.copy {
+				font-size:16px;
+				line-height: 16px;
+			}
+		}
+
+		.listed.highlight {
+			.copy {
+				font-size:16px;
+				line-height: 16px;
+			}
+		}
+	}
+
+	.affilliate-logo {
+
+		img {
+			width:calc(90% - 8px);
+		}
+
+	}
+}

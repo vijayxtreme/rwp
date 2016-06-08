@@ -164,7 +164,7 @@ section {
       clear: both; }
     section .listed .copy {
       margin-top: 8px;
-      width: 240px;
+      max-width: 240px;
       margin-bottom: 31px;
       font-size: 18px;
       line-height: 18px; }
@@ -283,3 +283,16 @@ footer {
 
 #rw-disclosure {
   display: none; }
+
+@media screen and (max-width: 359px) {
+  .editorspick {
+    width: 26.6%;
+    background-size: contain; }
+  section .listed .copy {
+    font-size: 16px;
+    line-height: 16px; }
+  section .listed.highlight .copy {
+    font-size: 16px;
+    line-height: 16px; }
+  .affilliate-logo img {
+    width: calc(90% - 8px); } }
