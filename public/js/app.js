@@ -25,59 +25,69 @@ $(function() {
 			var handle = $(ui.handle);
 			var left = handle.css('left');
 
-			console.log(ui.value);
-
-
 			if(handle.index() == 1){
-				var sh1 = (parseFloat(handle[0].style.left));
-				$( "#amt1" ).html( ui.values[ 0 ] );
-				$('input[name="age1"]').val(ui.values[ 0 ]);
+				setTimeout(function(){
+					var sh1 = (parseFloat(handle[0].style.left));
+					console.log(sh1)
 
-				//if range going up, then sliding right
-				if(prev1 && prev1 < ui.value){
-					//console.log('going up');
-					
-					sh1 = (sh1 - 3) + "%";
+					//if range going up, then sliding right
+					if(prev1 && prev1 < ui.value){
+						console.log('going up');
+						
+						sh1 = (sh1 - 5) + "%";
+						console.log(sh1);
+						$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
 
-					$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
+						prev1 = ui.value;
 
-					prev1 = ui.value;
+					//if range going down, then sliding left
+					}else if(prev1 && prev1 > ui.value){
+						console.log('going down');
 
-				//if range going down, then sliding left
-				}else if(prev1 && prev1 > ui.value){
-					//console.log('going down');
+						sh1 = (sh1 - 6) + "%";
+						
+						$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
 
-					sh1 = (sh1 - 8) + "%";
-					
-					$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
+						prev1 = ui.value;
+					}
 
-					prev1 = ui.value;
-				}
+					$( "#amt1" ).html( ui.values[0]);
+					$('input[name="age1"]').val(ui.values[0]);
 
+				}, 50)
+				
+
+	
 			//if handle is 2
 			}else {
-				var sh2 = (parseFloat(handle[0].style.left));
-				$( "#amt2" ).html( ui.values[ 1 ] );
-				$('input[name="age2"]').val(ui.values[ 1 ]);
-				if(prev2 && prev2 < ui.value){
-					//console.log('going up');
+				
+				setTimeout(function(){
+					var sh2 = (parseFloat(handle[0].style.left));
+					console.log(sh2)
 					
-					sh2 = (sh2 - 3) + "%";
+					if(prev2 && prev2 < ui.value){
+						//console.log('going up');
+						
+						sh2 = (sh2 - 5) + "%";
 
-					$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
+						$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
 
-					prev2 = ui.value;
+						prev2 = ui.value;
 
-				//if range going down, then sliding left
-				}else if(prev2 && prev2 > ui.value){
-					//console.log('going down');
+					//if range going down, then sliding left
+					}else if(prev2 && prev2 > ui.value){
+						//console.log('going down');
 
-					sh2 = (sh2 - 8) + "%";
-					
-					$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
+						sh2 = (sh2 - 6) + "%";
+						
+						$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
 
-					prev2 = ui.value;
-				}
+						prev2 = ui.value;
+					}
+
+					$( "#amt2" ).html( ui.values[ 1 ] );
+					$('input[name="age2"]').val(ui.values[ 1 ]);
+				}, 50)
 			}
 		}
 	});
