@@ -81,7 +81,7 @@ $(function() {
 			var left = handle.css('left');
 			var index = handle.index();
 
-			//slideHandle(index, handle, ui);
+			slideHandle(index, handle, ui);
 		}
 	});
 
