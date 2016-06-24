@@ -11,13 +11,14 @@ body {
 	color:white;
 	-webkit-font-smoothing:antialiased;
 	font-family:"Helvetica Neue";
+	overflow-x:hidden;
 }
 
 button.select {
 	background-color:transparent;
 	width:100%;
 	border:0px;
-	border:1px solid white;
+	border:1px solid white; 
 	border-radius:7px;
 	text-align:left;
 	color:white;
@@ -79,13 +80,22 @@ h3 {
 		position:absolute;
 		background:url(../img/balloon_shape.png);
 		top:-56px;
+		left:-13px;
 		line-height: 49px;
 	}
 	#amt1 {
-
+		span {
+			position:absolute;
+			left: 13px;
+   			color: white;
+		}
 	}
 	#amt2 {
-
+		span {
+			position:absolute;
+			left: 13px;
+    		color: white;
+		}
 	}
 }
 #age-range {
@@ -131,4 +141,10 @@ button#view-sites {
 
 button#view-sites:active  {
 	box-shadow:inset 0px 2px 10px #3E3A3A;
+}
+#ages {
+	position:relative;
+	#amt1, #amt2 {
+		 position:absolute; /* important (all position that's not `static`) */
+	}	
 }

@@ -3,6 +3,9 @@ body {
 }
 
 header {
+	background-color:rgba(7,58,82, 0.82);
+	height:46px;
+
 	.logo {
 	    float: left;
 	    background-image: url(https://s3-us-west-1.amazonaws.com/review-weekly/assets/img/logo-blk.png);
@@ -20,11 +23,12 @@ header {
 	    letter-spacing: -0.25px;
 	    text-align: left;
 	    font-style: italic;
+	    color:white;
 	}
 
 	.menu {
 	    float: right;
-	    border-left: 2px solid #e7e7e7;
+	    border-left: 1px solid #7b7b7b;
 	    height: 15px;
 	    margin-top: 3px;
 	    margin-bottom: 3px;
@@ -38,13 +42,15 @@ header {
 	    }
 	}	
 }
-.editorspick {
-	width:110px;
-	height:30px;
-	background:url(../img/editorspick.png);
-	background-repeat:no-repeat;
-	margin-left:10px;
-}
+// .editorspick {
+// 	width:110px;
+// 	height:30px;
+// 	background:url(../img/editorspick.png);
+// 	background-repeat:no-repeat;
+// 	margin-left:5px;
+// 	background-position-x: 0px; 
+//    	background-size:110px 30px;
+// }
 
 
 
@@ -81,7 +87,12 @@ section {
 		color:white;
 		position:absolute;
 		top:133px;
-		left:20px;
+		left:0px;
+		background-color: rgba(29, 29, 29, 0.54);
+	    height: 42px;
+	    width: calc(100% - 20px);
+	    padding-left: 20px;
+	    line-height: 42px;
 	}
 	.tag {
 		background-color:#DDDDDD;
@@ -147,6 +158,7 @@ section {
 		.copy {
 			margin-top:8px;
 			max-width:240px;
+			min-height: 37px;
 			margin-bottom: 31px;
 			font-size: 18px;
 			line-height: 18px;
@@ -172,6 +184,7 @@ section {
 			font-size: 18px;
 			line-height: 18px;
 			margin-bottom: 11px;
+			min-height: 55px;
 		}
 	}
 	.horizontal {
@@ -208,24 +221,25 @@ section.main {
 footer {
 	text-align:center;
 	font-size:14px;
-	color:#898989;
+	color:#7d7d7d;
 	font-family: "Helvetica Neue";
 	padding-left:20px;
 	padding-right:20px;
+	background-color:white;
 
 	.logo-footer {
 		margin-bottom:40px;
 	}
 
 	.advertising {
-		margin-top:18px;
+		padding-top:38px;
 		margin-bottom:40px;
 		img {
 			//border:1px solid #DDDDDD;
 		}
 	}
 	.bottom {
-		border-top:2px solid #ddd;
+		border-top:1px solid #7b7b7b;
 		padding-top:20px;
 		padding-bottom:20px;
 	}

@@ -33,21 +33,3 @@
 	})
 
 }(jQuery));
-
-Function.prototype.test = function(){
-	var fn = this, args = Array.prototype.slice.call(arguments),
-	object = args.shift();
-
-	return function(){
-		return fn.call(object)
-	}
-}
-
-var myObj = {}
-function dummy(){
-	return this;
-}
-console.log(dummy())
-
-var dummied = dummy.test(myObj);
-console.log(dummied());

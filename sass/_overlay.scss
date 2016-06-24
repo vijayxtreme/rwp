@@ -54,13 +54,14 @@
 
 	}
 	label.full-width {
-		width:100%;
+		width:calc(100% - 14px);
 		display:block;
 		color:#7D7D7D;
 		height:100%;
 		position: absolute;
 		top: 0px;
-   		left: 14px;
+		left:0px;
+   		padding-left: 14px;
   		font-size: 16px;
   		line-height: 54px;
 	}

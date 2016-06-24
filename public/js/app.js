@@ -15,103 +15,156 @@ $(function() {
 
 	var prev1 = 21, prev2 = 35;
 
+	function slideHandle(index, handle, ui){
+
+		var prev, div, input;
+
+		switch(index){
+			case 1: 
+				prev = prev1;
+				div = $("#amt1");
+				input = $('input[name="age1"]');
+				break;
+			case 2:
+				prev = prev2;
+				div = $("#amt2");
+				input = $('input[name="age2"]');
+				break;
+
+			default:
+				break;
+		}
+
+		setTimeout(function(){
+			var sh = (parseFloat(handle[0].style.left));
+
+			//if range going up, then sliding right
+			if(prev && prev < ui.value){
+				sh = (sh - 5) + "%";
+				div.html( $( "#range-slider" ).slider( "values", index-1 ));
+				//.css('left', sh);
+
+				prev = ui.value;
+
+			//if range going down, then sliding left
+			}else if(prev && prev > ui.value){
+				sh = (sh - 5) + "%";
+				div.html( $( "#range-slider" ).slider( "values", index-1 ));
+				//.css('left', sh);
+
+				prev = ui.value;
+			}
+
+			div.html(ui.values[index-1]);
+			input.val(ui.values[index-1]);
+
+		}, 50)
+	}
+
+
 	$( "#range-slider" ).slider({
 		range: true,
 		min: 18,
 		max: 55,
 		values: [ 21, 35 ],
+		create:function(){
+			(function insertDivsIntoSliders($){
+				var handle1 = $(".ui-slider-handle").eq(0),
+				handle2 = $(".ui-slider-handle").eq(1);
+				handle1.append($("#amt1"))
+				handle2.append($("#amt2"))
+			})(jQuery);
+		},
 		slide: function( event, ui ) {
 
 			var handle = $(ui.handle);
 			var left = handle.css('left');
+			var index = handle.index();
 
-			if(handle.index() == 1){
-				setTimeout(function(){
-					var sh1 = (parseFloat(handle[0].style.left));
-					console.log(sh1)
-
-					//if range going up, then sliding right
-					if(prev1 && prev1 < ui.value){
-						console.log('going up');
-						
-						sh1 = (sh1 - 5) + "%";
-						console.log(sh1);
-						$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
-
-						prev1 = ui.value;
-
-					//if range going down, then sliding left
-					}else if(prev1 && prev1 > ui.value){
-						console.log('going down');
-
-						sh1 = (sh1 - 6) + "%";
-						
-						$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
-
-						prev1 = ui.value;
-					}
-
-					$( "#amt1" ).html( ui.values[0]);
-					$('input[name="age1"]').val(ui.values[0]);
-
-				}, 50)
-				
-
-	
-			//if handle is 2
-			}else {
-				
-				setTimeout(function(){
-					var sh2 = (parseFloat(handle[0].style.left));
-					console.log(sh2)
-					
-					if(prev2 && prev2 < ui.value){
-						//console.log('going up');
-						
-						sh2 = (sh2 - 5) + "%";
-
-						$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
-
-						prev2 = ui.value;
-
-					//if range going down, then sliding left
-					}else if(prev2 && prev2 > ui.value){
-						//console.log('going down');
-
-						sh2 = (sh2 - 6) + "%";
-						
-						$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
-
-						prev2 = ui.value;
-					}
-
-					$( "#amt2" ).html( ui.values[ 1 ] );
-					$('input[name="age2"]').val(ui.values[ 1 ]);
-				}, 50)
-			}
+			//slideHandle(index, handle, ui);
 		}
 	});
 
-	var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left) - 5.5) + '%';
-	var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left) - 5.5) + '%';
-	console.log(sh1, sh2)
+	//var sh1 = (parseFloat($('.ui-slider-handle:eq(0)')[0].style.left) - 5.5) + '%';
+	//var sh2 = (parseFloat($('.ui-slider-handle:eq(1)')[0].style.left) - 5.5) + '%';
 
-	$( "#amt1" ).html( $( "#range-slider" ).slider( "values", 0 )).css('left', sh1);
-	$( "#amt2" ).html( $( "#range-slider" ).slider( "values", 1 )).css('left', sh2);
+	$( "#amt1" ).html( "<span>" + $( "#range-slider" ).slider( "values", 0 ) + "</span>");
+	$( "#amt2" ).html( "<span>" + $( "#range-slider" ).slider( "values", 1 ) + "</span>");
 
 	$("#category button").click(function(e){
 		e.preventDefault();
+		$("html, body").animate({ scrollTop: 0 }, "slow");
 		$('.overlay.category').show();
 	});
 	 
 	$("#commitment-level button").click(function(e){
 		e.preventDefault();
+		$("html, body").animate({ scrollTop: 0 }, "slow");
 	 	$('.overlay.c-level').show();
 	});
 });
 
+(function slideBoxes($){
+
+	var selected = null, // Object of the element to be moved
+    x_pos = 0, y_pos = 0, // Stores x & y coordinates of the mouse pointer
+    x_elem = 0, y_elem = 0; // Stores top, left values (edge) of the element
+
+
+	// Will be called when user starts dragging an element
+	function _drag_init(elem) {
+	    // Store the object of the element which needs to be moved
+
+	    selected = elem;
+	    x_elem = x_pos - selected.offsetLeft;
+	    console.log(x_pos, x_elem)
+	   // y_elem = y_pos - selected.offsetTop;
+	}
+
+	// Will be called when user dragging an element
+	function _move_elem(e) {
+		e.preventDefault();
+		
+	    x_pos = e.touches[0].pageX;
+	    
+	    //need a switch
+	    var min = -29, max=$("#amt2").position().left;
+	  
+
+	    // y_pos = document.all ? window.event.clientY : e.pageY;
+	    if (selected !== null && x_pos > min && x_pos < max) {
+	        selected.style.left = (x_pos - x_elem) + 'px';
+
+	         console.log(x_pos, x_elem)
+	       // selected.style.top = (y_pos - y_elem) + 'px';
+	    }
+	}
+
+	// Destroy the object when we are done
+	function _destroy() {
+	    selected = null;
+	}
+
+	// Bind the functions...
+
+	var el = document.getElementById('amt1');
+
+	el.addEventListener('touchstart', function(e){
+		 _drag_init(el);
+	    return false;
+	})
+
+	el.addEventListener('touchmove', _move_elem);
+	el.addEventListener('touchend', _destroy);
+
+}(jQuery));
+
 (function createCategories($){
-	var categories = [{
+	var categories = [
+	{
+		"name":"All" 
+	},
+	{
 		"name":"Christian" 
 	},	{
 		"name":"Jewish" 
@@ -141,7 +194,7 @@ $(function() {
 	$.each(categories, function(k,v){
 		var $div = $('<div>');
 		$div.addClass('choice');
-		var html = "<input type='radio' id='category-"+k+"' name='category-group'><label class='category-group' for='category-"+k+"'></label><label class='full-width' for='category-"+k+"'>"+v.name+"</label>";
+		var html = "<input type='radio' id='category-"+k+"' name='category-group'><label class='category-group' id='cat-"+k+"' for='category-"+k+"'></label><label class='full-width' for='category-"+k+"'>"+v.name+"</label>";
 
 		$div.html(html);
 		$(".overlay #categories").append($div);
@@ -160,7 +213,7 @@ $(function() {
 	$.each(commitments, function(k,v){
 		var $div = $('<div>');
 		$div.addClass('choice');
-		var html = "<input type='radio' id='commit-"+k+"' name='commit-group'><label class='commit-group' for='commit-"+k+"'></label><label class='full-width' for='commit-"+k+"'>"+v.level+"</label>";
+		var html = "<input type='radio' id='commit-"+k+"' name='commit-group'><label class='commit-group' id='comm-"+k+"' for='commit-"+k+"'></label><label class='full-width' for='commit-"+k+"'>"+v.level+"</label>";
 		$div.html(html);
 		$(".overlay #c-levels").append($div);
 	});
