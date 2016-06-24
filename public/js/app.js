@@ -36,27 +36,20 @@ $(function() {
 		}
 
 		setTimeout(function(){
-			var sh = (parseFloat(handle[0].style.left));
-
+		
 			//if range going up, then sliding right
 			if(prev && prev < ui.value){
-				sh = (sh - 5) + "%";
-				div.html( $( "#range-slider" ).slider( "values", index-1 ));
-				//.css('left', sh);
-
+				div.html( "<span>" + $( "#range-slider" ).slider( "values", index-1 ) + "</span>");
 				prev = ui.value;
 
 			//if range going down, then sliding left
 			}else if(prev && prev > ui.value){
-				sh = (sh - 5) + "%";
-				div.html( $( "#range-slider" ).slider( "values", index-1 ));
-				//.css('left', sh);
-
+				div.html("<span>" + $( "#range-slider" ).slider( "values", index-1 ) + "</span>");
 				prev = ui.value;
 			}
 
-			div.html(ui.values[index-1]);
-			input.val(ui.values[index-1]);
+			//div.html(ui.values[index-1]);
+			//input.val(ui.values[index-1]);
 
 		}, 50)
 	}
